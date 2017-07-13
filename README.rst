@@ -32,7 +32,8 @@ To install from PyPI, add ``dependency-check`` to your ``dev-requirements.txt``
 or a similar file. For more installation options, see the next section.
 
 To just get the ``dependency-check`` CLI tool installed into your home,
-independant of any project, you can use the `pip script installer`_.
+independant of any project, you can use the `pip script installer`_ or
+``pip install --user dependency-check``.
 
  |Installation Demo|
 
@@ -72,7 +73,7 @@ To get a bleeding-edge version from source, use these commands::
 
     repo="jhermann/dependency-check-py"
     pip install -r "https://raw.githubusercontent.com/$repo/master/requirements.txt"
-    pip install -UI -e "git+https://github.com/$repo.git#egg=dependency-check"
+    pip install -U -e "git+https://github.com/$repo.git#egg=dependency-check"
 
 As a developer, to create a working directory for this project, call these commands::
 
@@ -90,9 +91,13 @@ Other Python Security Tools
 ---------------------------
 
 * `openstack/bandit`_ – Security linter designed to find common security issues in Python code, by static AST analysis.
+* `pyupio/safety`_ – Safety checks your installed dependencies for known security vulnerabilities.
 
+  * `pyupio/safety-db`_ – A curated database of security vulnerabilities in Python packages.
 
 .. _`openstack/bandit`: https://github.com/openstack/bandit
+.. _`pyupio/safety`: https://github.com/pyupio/safety
+.. _`pyupio/safety-db`: https://github.com/pyupio/safety-db
 
 .. _`NVD`: https://nvd.nist.gov/
 .. _`OWASP dependency-check-cli`: https://github.com/jeremylong/dependencycheck#dependency-check

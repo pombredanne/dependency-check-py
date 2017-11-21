@@ -1,7 +1,7 @@
 dependency-check
 ================
 
- |Travis CI|  |GitHub Issues|  |License|  |Latest Version|  |Downloads|
+ |Travis CI|  |GitHub Issues|  |License|  |Latest Version|
 
 
 Shim to easily install the `OWASP dependency-check-cli`_ tool into Python projects.
@@ -47,7 +47,7 @@ and the directory for the local installation.
 =============================== ==============================================================================================
 Variable                        Default
 =============================== ==============================================================================================
-``DEPENDENCY_CHECK_VERSION``    ``1.3.1``
+``DEPENDENCY_CHECK_VERSION``    ``2.1.1``
 ``DEPENDENCY_CHECK_URL``        ``https://bintray.com/artifact/download/jeremy-long/owasp/dependency-check-{version}-release.zip``
 ``DEPENDENCY_CHECK_HOME``       ``~/.local/dependency-check``
 ``DEPENDENCY_CHECK_NVD_URL``    *Use NIST NVD URLs*

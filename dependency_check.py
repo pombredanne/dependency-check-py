@@ -2,7 +2,7 @@
 """
     dependency-check - Shim to easily install OWASP dependency-check-cli into Python projects.
 
-    Copyright ©  2015 Jürgen Hermann <jh@web.de>
+    Copyright ©  2015 – 2017 Jürgen Hermann <jh@web.de>
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 """
 from __future__ import absolute_import, unicode_literals, print_function
 
-__version__ = '0.2.0'
+__version__ = '0.2.1'
 __author__ = 'Jürgen Hermann'
 __author_email__ = 'jh@web.de'
 
@@ -36,7 +36,7 @@ import subprocess
 from contextlib import closing
 
 
-DEPENDENCY_CHECK_VERSION = '1.3.1'
+DEPENDENCY_CHECK_VERSION = '2.1.1'
 DEPENDENCY_CHECK_URL = 'https://bintray.com/artifact/download/jeremy-long/owasp/dependency-check-{version}-release.zip'
 
 
@@ -68,13 +68,13 @@ def install():
                 if not os.path.isdir(dc_home):
                     os.makedirs(dc_home)
                 with closing(zipfile.ZipFile(zip_temp.name)) as zip_handle:
-                    for member in zip_handle.infolist():
+                    for member in zip_handle.infolist():  # bogus pylint: disable=no-member
                         out_path = dc_home + os.sep + member.filename.split('/', 1)[1]
                         if member.filename.endswith('/'):
                             if not os.path.isdir(out_path):
                                 os.makedirs(out_path)
                         else:
-                            with closing(zip_handle.open(member)) as inp:
+                            with closing(zip_handle.open(member)) as inp:  # bogus pylint: disable=no-member
                                 with open(out_path, 'wb') as out:
                                     shutil.copyfileobj(inp, out)
                 os.chmod(os.path.join(dc_home, 'bin', 'dependency-check.sh'), 0o755)
